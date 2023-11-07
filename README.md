@@ -1,13 +1,15 @@
-# Juego del Ahorcado en JavaScript
+# Juego del Ahorcado con Interfaz Gráfica
 
-Este es un proyecto de implementación del juego del ahorcado en JavaScript y HTML, con estilos proporcionados por Bootstrap 5. Permite a los usuarios adivinar una palabra secreta y muestra estadísticas sobre el juego.
+Este es un juego clásico del ahorcado con una interfaz gráfica simple desarrollada con HTML, Bootstrap 5 y JavaScript. El objetivo del juego es adivinar una palabra secreta letra por letra antes de que se agoten los intentos. Cada letra incorrecta dibujará una parte del ahorcado en la horca. El juego continúa hasta que el jugador adivina la palabra o se queda sin intentos.
 
 ## Características
 
-- Iniciar un nuevo juego con una palabra secreta.
-- Adivinar letras y ver el progreso del juego.
-- Mostrar estadísticas de partidas jugadas, ganadas y perdidas.
-- Interfaz de usuario atractiva y responsiva gracias a Bootstrap 5.
+- Interfaz gráfica sencilla con imágenes para el ahorcado.
+- Seguimiento de las letras utilizadas y su estado (correctas o incorrectas).
+- Contador de victorias y derrotas.
+- Estadísticas de partidas.
+- Reinicio de juego para jugar múltiples partidas.
+- Personalización de las palabras secretas.
 
 ## Tecnologías Utilizadas
 
@@ -17,10 +19,18 @@ Este es un proyecto de implementación del juego del ahorcado en JavaScript y HT
 
 ## Cómo jugar
 
-1. Abre el juego y selecciona "Iniciar un juego" desde el menú.
-2. Ingresa una palabra secreta (por ejemplo, "casa").
-3. Adivina letras para revelar la palabra secreta.
-4. Comprueba las estadísticas para ver cuántas partidas has jugado, ganado y perdido.
+1. Abre el juego en un navegador web compatible.
+2. Haz clic en el botón "Nueva Partida" para comenzar una partida.
+3. Introduce la palabra secreta que desees que el otro jugador adivine (asegúrate de que no haya espacios en la palabra).
+4. El otro jugador intentará adivinar la palabra ingresando letras en el abecedario.
+5. Si una letra no está en la palabra, el juego dibujará una parte del la horca.
+6. Si el jugador adivina la palabra antes de quedarse sin intentos, gana.
+7. Si el jugador se queda sin intentos antes de adivinar la palabra, pierde.
+8. Las estadísticas se actualizan después de cada partida, y puedes verlas haciendo clic en el botón "Estadísticas".
+
+## Personalización
+
+Puedes personalizar el juego cambiando la palabra secreta en cada partida, y las estadísticas se guardan localmente en tu navegador para hacer un seguimiento de tus victorias y derrotas.
 
 ## Capturas de Pantalla
 ### Parte 1 : Implementación del juego en JavaScript
@@ -36,38 +46,4 @@ Este es un proyecto de implementación del juego del ahorcado en JavaScript y HT
 - Año: 2023
 - Repositorio de GitHub: (https://github.com/JostinCabascango)
 
-## Enunciado de la Parte 1
 
-### Implementación del juego en JavaScript
-
-1. Iniciar el programa: Al iniciar el programa, muestra un menú con tres opciones: "Iniciar un juego," "Estadísticas" y "Salir." El usuario debe seleccionar una opción válida; de lo contrario, muestra un mensaje de error y vuelve a mostrar el menú hasta que se seleccione la opción "Salir."
-
-2. Iniciar un juego: Cuando el usuario selecciona esta opción, solicita al usuario que ingrese una palabra secreta (por ejemplo, "casa"). Luego, muestra la longitud de la palabra en la consola con guiones bajos (por ejemplo, "_ _ _ _").
-
-3. Jugar el juego: El programa le pide al usuario que ingrese una letra. Debes validar que el usuario haya ingresado solo una letra y que sea una letra válida (no se aceptan caracteres especiales ni números). El juego continúa hasta que el usuario adivine la palabra o se quede sin intentos.
-
-4. Mostrar el progreso: Después de cada intento, muestra el progreso del juego en la consola, como "C _ S _" y la lista de letras incorrectas ("Lletres fallades 3/6: b, x, e").
-
-5. Finalizar el juego: Cuando el usuario adivina la palabra o se queda sin intentos, muestra un mensaje de felicitación o derrota y vuelve al menú principal.
-
-## Enunciado de la Parte 2
-
-### Creación de la interfaz de usuario en HTML y JavaScript
-
-1. Agrega botones HTML llamados "Iniciar partida" y "Estadísticas."
-
-2. Define una función `novaPartida()` en JavaScript para iniciar una nueva partida.
-
-3. Agrega divs en el HTML para mostrar el juego, el abecedario, la imagen del ahorcado y las letras utilizadas.
-
-4. Crea un abecedario dinámico con botones para cada letra permitida. Cuando se hace clic en una letra, llama a una función `clickLletra(letra)` para procesarla.
-
-5. Actualiza el juego en el div `jocPenjat` para mostrar el progreso y usa imágenes para representar el estado del ahorcado.
-
-6. Muestra las letras utilizadas en el div `lletresUtilitzades`.
-
-7. Bloquea los botones de las letras después de ser utilizados.
-
-8. Si se hace clic en el botón "Estadísticas," abre una nueva ventana y muestra la información de estadísticas.
-
-9. Muestra un `alert` al finalizar el juego.
