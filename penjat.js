@@ -23,12 +23,14 @@ const abecedario = document.getElementById("abecedari");
 const imagenAhorcado = document.getElementById("imatgePenjat");
 const letrasUtilizidas = document.getElementById("lletresUtilitzades");
 const contenidoAlerta = document.getElementById("alertContainer");
+const cajonLetrasUtilizidas = document.getElementById("cajonLetrasUtilizidas");
 
 // Funcion para iniciar una nueva partida
 function nuevaPartida() {
     // Incrementamos el numero de partidas
     totalPartidasJugadas++;
     // Pedimos una palabra al usuario
+    reiniciarJuego();
     palabra = prompt("Introduce la palabra secreta").toLowerCase();
     mostrarAbecedario();
     mostrarPalabraSecreta();
@@ -95,18 +97,24 @@ function reiniciarJuego() {
     imagenAhorcado.src = imagenes[imagenActual];
     abecedario.innerHTML = "";
     juegoAhorcado.innerHTML = ""
-    letrasUtilizidas.innerHTML = ""
+    cajonLetrasUtilizidas.innerHTML = ""
 }
 // Funcion para mostrar las letras utilizadas
 function mostrarLetrasUtilizadas() {
-    letrasUtilizidas.innerHTML = "";
+    const cajonLetrasUtilizidas = document.getElementById("cajonLetrasUtilizidas");
+    cajonLetrasUtilizidas.innerHTML = "";
     for (let index = 0; index < letrasUsadas.length; index++) {
         const letra = letrasUsadas[index];
         let boton = document.createElement("button");
         boton.textContent = letra;
         // Dar estilos al boton 
-        boton.classList.add("btn", "btn-danger", "m-2");
-        letrasUtilizidas.appendChild(boton);
+        if (palabra.includes(letra)) {
+            boton.classList.add("btn", "btn-success", "m-2");
+        }
+        else {
+            boton.classList.add("btn", "btn-danger", "m-2");
+        }
+        cajonLetrasUtilizidas.appendChild(boton);
     }
 
 }
@@ -160,7 +168,6 @@ function actualizarPalabraSecreta() {
 
         juegoAhorcado.appendChild(span);
     }
-    console.log(palabraSecreta);
 }
 
 // Funcion para crear una alerta de boostrap 5
