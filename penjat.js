@@ -29,8 +29,9 @@ const cajonLetrasUtilizidas = document.getElementById("cajonLetrasUtilizidas");
 function nuevaPartida() {
     // Incrementamos el numero de partidas
     totalPartidasJugadas++;
-    // Pedimos una palabra al usuario
+    // reestablecemos los valores cada vez que el usuario inicie partida
     reiniciarJuego();
+     // Pedimos una palabra al usuario
     palabra = prompt("Introduce la palabra secreta").toLowerCase();
     mostrarAbecedario();
     mostrarPalabraSecreta();
@@ -63,7 +64,6 @@ function actualizarInterfaz() {
     mostrarImagenAhorcado();
     actualizarPalabraSecreta();
     comprobarResultado();
-
 
 }
 // Funcion para mostrar el abecedario con botones de la A-Z
@@ -99,7 +99,7 @@ function reiniciarJuego() {
     juegoAhorcado.innerHTML = ""
     cajonLetrasUtilizidas.innerHTML = ""
 }
-// Funcion para mostrar las letras utilizadas
+// Funcion para mostrar las letras utilizadas dentro de un cajon de boostrap
 function mostrarLetrasUtilizadas() {
     const cajonLetrasUtilizidas = document.getElementById("cajonLetrasUtilizidas");
     cajonLetrasUtilizidas.innerHTML = "";
@@ -118,7 +118,7 @@ function mostrarLetrasUtilizadas() {
     }
 
 }
-// Funcion que muestra las estadisticas del juego
+// Funcion que muestra las estadisticas del juego en una nueva ventana
 function mostrarEstadisticas() {
     victorias = localStorage.getItem('victorias');
     derrotas = localStorage.getItem('derrotas');
@@ -136,7 +136,7 @@ function calcularPorcentage(valor, totalPartidasJugadas) {
     return (valor / totalPartidasJugadas) * 100;
 
 }
-// Funcion para mostrar los guiones bajos que representa u
+// Funcion para mostrar la palabra en forma de guiones bajos
 function mostrarPalabraSecreta() {
     for (let index = 0; index < palabra.length; index++) {
         const element = "_";
@@ -148,7 +148,7 @@ function mostrarPalabraSecreta() {
         juegoAhorcado.appendChild(span);
     }
 }
-// Función para mostrar la palabra secreta con guiones bajos y letras adivinadas
+// Función para actualizar la palabra secreta con guiones bajos y letras acertadas
 function actualizarPalabraSecreta() {
     palabraSecreta = "";
     juegoAhorcado.innerHTML = ""; // Limpiamos el juegoAhorcado
@@ -170,7 +170,7 @@ function actualizarPalabraSecreta() {
     }
 }
 
-// Funcion para crear una alerta de boostrap 5
+// Funcion para crear una alerta de boostrap
 function crearAlerta(clase, mensaje) {
     const alerta = document.createElement("div");
     alerta.classList.add("alert", clase);
